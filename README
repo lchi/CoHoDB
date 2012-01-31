@@ -1,6 +1,18 @@
 // Notes used in development
 // Lucas - last updated 1/29/12
 
+Installing sqlite3 on Windows (7):
+-Download both the exe (command line shell) and DLL Libraries (ZIP archive 
+with DLL and Sqlite library) from http://www.sqlite.org/download.html
+-Extract to C:\Windows\system (change drive name if necessary)
+-Add the above directory to your Path (adjusted for your drive name) 
+environment variable (Right click My Computer, click "Advanced System 
+Settings", then in the 'Advanced' tab click 'Environment Variables' at
+the bottom.  Path will be listed as a system variable
+-See if it worked by opening up a command prompt (cmd) and typing
+'sqlite3'
+-Read docs http://www.sqlite.org/docs.html for more help
+
 -run sqlite using: sqlite3 <dbName>
 -to create tables use: sqlite3 <dbName> < <sql file>
     -this means: sqlite3 coho.db < tables.sql 
@@ -20,3 +32,4 @@ should have {'fieldName':<fieldValue> ... } for all relevant fields.
 -add_record()'s dictionary needs the 'type' key - this is used to determine
 stock, option and futures trades (will add some error checking later)
 -'type can be 'stock', 'option', or 'future'
+
