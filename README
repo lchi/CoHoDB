@@ -1,0 +1,22 @@
+// Notes used in development
+// Lucas - last updated 1/29/12
+
+-run sqlite using: sqlite3 <dbName>
+-to create tables use: sqlite3 <dbName> < <sql file>
+    -this means: sqlite3 coho.db < tables.sql 
+-sqlite commands:
+    -sqlite3 coho.db to load the database.  Creates 'coho.db' database
+    if it doesn't exist, opens if it does
+    -when in the command prompt for sqlite
+    	  -.tables lists all tables
+	  -pragma table_info(<tableName>) gets you the column info
+
+Usage: 
+
+-Create a new instance of the CoHoData object.  This makes a new connection
+to the database
+-CoHoData.add_record() takes a dictionary as an argument.  This dictionary
+should have {'fieldName':<fieldValue> ... } for all relevant fields.
+-add_record()'s dictionary needs the 'type' key - this is used to determine
+stock, option and futures trades (will add some error checking later)
+-'type can be 'stock', 'option', or 'future'
