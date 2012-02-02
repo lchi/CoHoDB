@@ -40,15 +40,22 @@ class CoHoData:
         cursor.execute(statement)
         self.db.commit()
 
-    def get_schema(self):
+    def get_table_schema(self, table_name):
         c = self.db.cursor()
-        c.execute("pragma table_info(trade_records);")
-        print  c.fetchall()
+        c.execute("pragma table_info("+table_name+");")
+        return c.fetchall()
+
+    def get_tables(self):
+        c = self.db.cursor()
+        c.execute("select * from SQLITE_MASTER;")
+        return c.fetchall()
         
 def main():
     data = CoHoData()
     data.add_record(**{'underlyer':'goog', 'type':'put', 'quantity':300})
-    data.get_schema()
+    print data.get_table_schema('trade_records')
+    print 'aaa'
+    print data.get_tables()
 
 if __name__ == "__main__":
     main()
